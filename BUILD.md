@@ -19,7 +19,7 @@
 
 ## Copy images
 
-    imagemin src/img/* build/img
+    gulp images
 
 ## Preview server
 

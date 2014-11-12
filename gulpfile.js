@@ -10,6 +10,8 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 
+var imagemin = require('gulp-imagemin');
+
 
 var config = {
   templates: {
@@ -24,6 +26,10 @@ var config = {
     src: 'src/js/main.js',
     bundleName: 'main.js',
     dest: 'build/js'
+  },
+  images: {
+    src: 'src/img/**/*.{jpg,jpeg,png,gif}',
+    dest: 'build/img'
   }
 }
 
@@ -50,4 +56,11 @@ gulp.task('js', function() {
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest(config.js.dest))
+});
+
+gulp.task('images', function() {
+  gulp
+    .src(config.images.src)
+    .pipe(imagemin())
+    .pipe(gulp.dest(config.images.dest))
 });
