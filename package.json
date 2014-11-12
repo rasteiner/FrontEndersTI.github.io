@@ -19,5 +19,9 @@
   "dependencies": {
     "crel": "^2.1.5",
     "feedparser": "^0.19.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jade": "^0.9.0"
   }
 }

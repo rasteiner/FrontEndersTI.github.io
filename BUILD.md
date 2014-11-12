@@ -3,10 +3,11 @@
 ## Install the tools
 
     npm install -g jade stylus imagemin browserify
+    npm install --save-dev gulp
 
 ## Compile Jade to HTML
 
-    jade src --out build
+    gulp templates
 
 ## Compile Stylus to CSS
 
