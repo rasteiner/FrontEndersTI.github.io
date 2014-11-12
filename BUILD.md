@@ -5,6 +5,10 @@
     npm install -g jade stylus imagemin browserify
     npm install
 
+
+## Compile All
+    gulp
+
 ## Compile Jade to HTML
 
     gulp templates
@@ -24,3 +28,4 @@
 ## Preview server
 
     gulp serve
+

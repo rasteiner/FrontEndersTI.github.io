@@ -38,14 +38,14 @@ var config = {
 }
 
 gulp.task('templates', function() {
-  gulp
+  return gulp
     .src(config.templates.src)
     .pipe(jade())
     .pipe(gulp.dest(config.templates.dest));
 });
 
 gulp.task('styles', function() {
-  gulp
+  return gulp
     .src(config.styles.src)
     .pipe(stylus())
     .pipe(autoprefixer())
@@ -54,7 +54,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('js', function() {
-  browserify('./' + config.js.src)
+  return browserify('./' + config.js.src)
     .bundle()
     .pipe(source(config.js.bundleName))
     .pipe(buffer())
@@ -63,7 +63,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('images', function() {
-  gulp
+  return gulp
     .src(config.images.src)
     .pipe(imagemin())
     .pipe(gulp.dest(config.images.dest))
@@ -72,3 +72,5 @@ gulp.task('images', function() {
 gulp.task('serve', function() {
   connect.server(config.connect);
 });
+
+gulp.task('default', ['templates', 'styles', 'js', 'images', 'serve']);
