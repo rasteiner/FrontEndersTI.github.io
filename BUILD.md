@@ -9,10 +9,9 @@
 
     gulp templates
 
-## Compile Stylus to CSS
+## Compile Stylus to CSS, autoprefix and minify
 
-    mkdir -p build/css
-    stylus src/css --out build/css
+    gulp styles
 
 ## Compile Javascript
 
