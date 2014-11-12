@@ -73,4 +73,12 @@ gulp.task('serve', function() {
   connect.server(config.connect);
 });
 
-gulp.task('default', ['templates', 'styles', 'js', 'images', 'serve']);
+
+gulp.task('watch', function() {
+  gulp.watch(config.templates.src, ['templates']);
+  gulp.watch(config.styles.src, ['styles']);
+  gulp.watch(config.js.src, ['js']);
+  gulp.watch(config.images.src, ['images']);
+});
+
+gulp.task('default', ['templates', 'styles', 'js', 'images', 'serve', 'watch']);
