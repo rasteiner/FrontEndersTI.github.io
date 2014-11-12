@@ -23,5 +23,4 @@
 
 ## Preview server
 
-    cd build
-    python -m SimpleHTTPServer
+    gulp serve

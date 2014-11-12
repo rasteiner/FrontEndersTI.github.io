@@ -12,6 +12,7 @@ var buffer = require('vinyl-buffer');
 
 var imagemin = require('gulp-imagemin');
 
+var connect = require('gulp-connect');
 
 var config = {
   templates: {
@@ -30,6 +31,9 @@ var config = {
   images: {
     src: 'src/img/**/*.{jpg,jpeg,png,gif}',
     dest: 'build/img'
+  },
+  connect: {
+    root: 'build'
   }
 }
 
@@ -63,4 +67,8 @@ gulp.task('images', function() {
     .src(config.images.src)
     .pipe(imagemin())
     .pipe(gulp.dest(config.images.dest))
+});
+
+gulp.task('serve', function() {
+  connect.server(config.connect);
 });
