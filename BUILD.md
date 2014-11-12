@@ -13,10 +13,9 @@
 
     gulp styles
 
-## Compile Javascript
+## Compile and minify Javascript
 
-    mkdir -p build/js
-    browserify src/js/main.js > build/js/main.js
+    gulp js
 
 ## Copy images
 
