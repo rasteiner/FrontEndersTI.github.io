@@ -33,7 +33,8 @@ var config = {
     dest: 'build/img'
   },
   connect: {
-    root: 'build'
+    root: 'build',
+    livereload: true
   }
 }
 
@@ -41,7 +42,8 @@ gulp.task('templates', function() {
   return gulp
     .src(config.templates.src)
     .pipe(jade())
-    .pipe(gulp.dest(config.templates.dest));
+    .pipe(gulp.dest(config.templates.dest))
+    .pipe(connect.reload());
 });
 
 gulp.task('styles', function() {
@@ -50,7 +52,8 @@ gulp.task('styles', function() {
     .pipe(stylus())
     .pipe(autoprefixer())
     .pipe(cssmin())
-    .pipe(gulp.dest(config.styles.dest));
+    .pipe(gulp.dest(config.styles.dest))
+    .pipe(connect.reload());
 });
 
 gulp.task('js', function() {
@@ -60,6 +63,7 @@ gulp.task('js', function() {
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest(config.js.dest))
+    .pipe(connect.reload());
 });
 
 gulp.task('images', function() {
@@ -67,6 +71,7 @@ gulp.task('images', function() {
     .src(config.images.src)
     .pipe(imagemin())
     .pipe(gulp.dest(config.images.dest))
+    .pipe(connect.reload());
 });
 
 gulp.task('serve', function() {
